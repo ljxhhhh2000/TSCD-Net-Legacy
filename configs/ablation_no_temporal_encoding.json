@@ -1,0 +1,13 @@
+{
+  "data": {"dataset_zip": "../../Dataset/SWDD"},
+  "features": {
+    "embedding_model": "E:/Study/pip/cache/models/paraphrase-multilingual-MiniLM-L12-v2",
+    "embedding_device": "auto"
+  },
+  "model": {"temporal_encoding": false},
+  "training": {"runs": 5},
+  "experiment": {
+    "output_dir": "runs/no_temporal_encoding",
+    "artifact_dir": "../../Dataset/TSCD-Net-Features/main"
+  }
+}

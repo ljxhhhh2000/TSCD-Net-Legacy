@@ -1,0 +1,54 @@
+{
+  "data": {
+    "dataset_zip": "../../Dataset/SWDD",
+    "members": ["control.jsonl", "depressed.jsonl"],
+    "min_tweets": 50,
+    "max_tweets": 500,
+    "include_retweets": true,
+    "start_date": "2010-01-01",
+    "end_date": "2022-01-01",
+    "scan_limit_per_file": null,
+    "max_users_per_class": null,
+    "random_seed": 2026
+  },
+  "features": {
+    "embedding_model": "E:/Study/pip/cache/models/paraphrase-multilingual-MiniLM-L12-v2",
+    "embedding_device": "cuda",
+    "embedding_batch_size": 64,
+    "symptom_set": "paper15",
+    "sequence_length": 500,
+    "cache_length": 500,
+    "drop_punctuation": false,
+    "convert_traditional": true
+  },
+  "model": {
+    "name": "tscdnet",
+    "device": "auto",
+    "model_dim": 64,
+    "time_dim": 16,
+    "attention_heads": 4,
+    "attention_layers": 2,
+    "ffn_multiplier": 4,
+    "dropout": 0.1,
+    "symptom_attention": true,
+    "temporal_attention": true,
+    "temporal_encoding": true
+  },
+  "training": {
+    "runs": 5,
+    "epochs": 100,
+    "batch_size": 32,
+    "learning_rate": 0.0001,
+    "weight_decay": 0.0,
+    "early_stopping_patience": 5,
+    "class_weighting": true,
+    "master_seed": 2026,
+    "use_amp": true
+  },
+  "experiment": {
+    "output_dir": "runs/main",
+    "artifact_dir": "../../Dataset/TSCD-Net-Features/main",
+    "models": ["tscdnet"],
+    "symptom_keys": []
+  }
+}
